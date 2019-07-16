@@ -7,11 +7,15 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     <context:component-scan
-            base-package="com.cn.*.ctrl" />
-    <mvc:annotation-driven />
-    <mvc:default-servlet-handler />
-    <bean
-            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            base-package="com.cn.*.ctrl"/>
+
+    <!-- 需要配置以下配置，不然会导致静态文件访问不到，根据自己项目文件的地址配置 -->
+    <mvc:resources location="common/images/" mapping="/images/**"/>
+    <mvc:resources location="common/css/" mapping="/css/**"/>
+    <mvc:resources location="common/js/" mapping="/js/**"/>
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>

@@ -54,7 +54,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--<tx:advice transaction-manager="transactionManager" id="tx">
+    <tx:advice transaction-manager="transactionManager" id="tx">
         <tx:attributes>
             <tx:method name="save*" propagation="REQUIRED" />
             <tx:method name="insert*" propagation="REQUIRED" />
@@ -62,6 +62,7 @@
             <tx:method name="create*" propagation="REQUIRED" />
             <tx:method name="delete*" propagation="REQUIRED" />
             <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="edit*" propagation="REQUIRED" />
             <tx:method name="find*" propagation="SUPPORTS"
                        read-only="true" />
             <tx:method name="select*" propagation="SUPPORTS"
@@ -72,6 +73,6 @@
     </tx:advice>
 
     <aop:config>
-        <aop:advisor advice-ref="tx" pointcut="execution(* com.cn.*.service.impl.*.* (..))"/>
-    </aop:config>-->
+        <aop:advisor advice-ref="tx" pointcut="execution( * com.cn.*.service.impl.*.* (..))"/>
+    </aop:config>
 </beans>
